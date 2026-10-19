@@ -57,7 +57,7 @@ textarea{width:100%;height:150px;font:12px/1.4 ui-monospace,Menlo,Consolas,monos
       <p class="msg" id="msg" role="alert"></p>
     </form>
 
-    <details id="teacher">
+    <details id="teacher" hidden>
       <summary>Giáo viên: đổi mật khẩu</summary>
       <form id="change">
         <label for="oldpw">Mật khẩu hiện tại</label>
@@ -88,6 +88,8 @@ textarea{width:100%;height:150px;font:12px/1.4 ui-monospace,Menlo,Consolas,monos
 <script>
 (function(){
 const $ = id => document.getElementById(id);
+const showTeacher = () => { if (location.hash === "#giao-vien"){ $("teacher").hidden = false; $("teacher").open = true; } };
+showTeacher(); window.addEventListener("hashchange", showTeacher);
 const enc = new TextEncoder();
 const b64d = s => { const bin = atob(s), a = new Uint8Array(bin.length); for (let i=0;i<bin.length;i++) a[i] = bin.charCodeAt(i); return a; };
 const b64e = a => { let s = ""; for (let i=0;i<a.length;i+=0x8000) s += String.fromCharCode.apply(null, a.subarray(i, i+0x8000)); return btoa(s); };
@@ -120,7 +122,7 @@ async function openSite(raw){
 
 // Auto-open on devices that remembered the current password
 (async () => {
-  const saved = store.get("fl-lock"); if (!saved) return;
+  const saved = store.get("fl-lock"); if (!saved || location.hash === "#giao-vien") return;
   try {
     const s = JSON.parse(saved), k = await loadKey();
     if (s.rev !== k.rev) { store.del("fl-lock"); return; }
