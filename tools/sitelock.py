@@ -10,6 +10,10 @@ Usage (needs: pip install cryptography):
   python3 tools/sitelock.py init    SOURCE.html PASSWORD   # new content key + key.json + index.html
   python3 tools/sitelock.py build   SOURCE.html PASSWORD   # re-encrypt edited source, keep key.json
   python3 tools/sitelock.py decrypt OUT.html    PASSWORD   # recover readable source from index.html
+
+Test pictures: SOURCE.html's folder may hold img/<test>.json (key -> JPEG data URI).
+build/init encrypt each one to img/<test>.bin, loaded by the page only when that
+test is opened.
 """
 import base64, json, os, re, secrets, sys
 from cryptography.hazmat.primitives.ciphers.aead import AESGCM
@@ -37,7 +41,30 @@ def unwrap(pw):
     except Exception:
         sys.exit("Wrong password for key.json")
 
+def build_pics(src, raw):
+    """Encrypt each SOURCE_DIR/img/<test>.json (data-URI pictures) to img/<test>.bin.
+    Plain layout: JSON header {key: [offset, length]} + newline + JPEG bytes.
+    File layout: 12-byte IV + AES-GCM ciphertext (same content key as the page)."""
+    srcdir = os.path.join(os.path.dirname(os.path.abspath(src)), "img")
+    if not os.path.isdir(srcdir):
+        return 0
+    outdir = os.path.join(ROOT, "img"); os.makedirs(outdir, exist_ok=True)
+    n = 0
+    for name in sorted(os.listdir(srcdir)):
+        if not name.endswith(".json"):
+            continue
+        pics = json.load(open(os.path.join(srcdir, name)))
+        head, blob = {}, b""
+        for k, v in pics.items():
+            b = b64d(v.split(",", 1)[1]); head[k] = [len(blob), len(b)]; blob += b
+        plain = json.dumps(head).encode() + b"\n" + blob
+        iv = os.urandom(12)
+        open(os.path.join(outdir, name[:-5] + ".bin"), "wb").write(iv + AESGCM(raw).encrypt(iv, plain, None))
+        n += 1
+    return n
+
 def build(src, raw):
+    print("pictures:", build_pics(src, raw))
     html = open(src, encoding="utf-8").read()
     m = re.search(r'id="logoMark"[^>]*src="([^"]+)"', html)
     iv = os.urandom(12)

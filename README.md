@@ -18,4 +18,6 @@ python3 tools/sitelock.py decrypt source.html MẬT_KHẨU   # lấy bản đọ
 python3 tools/sitelock.py build source.html MẬT_KHẨU     # mã hóa lại vào index.html
 ```
 
+Tranh Speaking để trong thư mục `img/` cạnh `source.html`, mỗi Test một file `tN.json`. Lệnh `build` sẽ mã hóa chúng thành `img/tN.bin` trong repo; trang chỉ tải tranh của Test khi học sinh mở Test đó.
+
 Không commit `source.html` lên repo này vì repo đang công khai.
