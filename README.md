@@ -1,6 +1,6 @@
 # Luyện thi A2 Flyers
 
-Trang luyện thi Cambridge A2 Flyers của Ms Trâm English Hub: hai phần riêng: **Từ vựng** (515 từ theo 19 chủ đề, IPA, nghĩa Anh–Việt, thẻ lật, Word Hunt, phát âm) và **Speaking** (lý thuyết 4 Part, luyện tập Test 1–3 theo A2 Flyers 3 với kiểm tra đáp án, ghi âm, phiếu đánh giá).
+Trang luyện thi Cambridge A2 Flyers của Ms Trâm English Hub: hai phần riêng: **Từ vựng** (515 từ theo 19 chủ đề, IPA, nghĩa Anh–Việt, thẻ lật, Word Hunt, phát âm) và **Speaking** (lý thuyết 4 Part, luyện tập Test 1–3 theo A2 Flyers 3 với kiểm tra đáp án, ghi âm).
 
 **Ms Trâm English Hub** · Zalo/HP: 079 29 51 529 · 0898 123 696 · 12 Lê Đình Chinh, Quy Nhơn Nam · https://www.facebook.com/msTram.EClass/
 
