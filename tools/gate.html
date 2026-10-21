@@ -4,7 +4,8 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <meta name="robots" content="noindex">
-<title>Flyers Word Garden</title>
+<title>Luyện thi A2 Flyers</title>
+<link rel="icon" type="image/png" href="{{LOGO}}">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@800&family=Nunito:wght@600;700;800&display=swap">
 <style>
@@ -18,9 +19,10 @@ body{margin:0;min-height:100vh;background:var(--bg);color:var(--ink);font:600 15
   background-image:linear-gradient(var(--navy) 0 180px,transparent 180px)}
 main{max-width:420px;margin:0 auto;padding-block:48px 32px}
 .card{background:var(--surface);border:1px solid var(--line);border-top:5px solid var(--brand);border-radius:16px;padding:24px;box-shadow:0 10px 30px rgba(13,53,80,.18)}
-.logo{display:block;width:150px;margin:0 auto 10px;background:#fff;border-radius:12px;padding:8px}
+.logo{display:block;width:72px;height:72px;margin:0 auto 12px;background:#fff;border-radius:16px;padding:4px;box-shadow:0 0 0 1px var(--line)}
+.org{margin:0 0 4px;text-align:center;font-size:12px;font-weight:800;letter-spacing:.12em;text-transform:uppercase;color:var(--sky)}
 h1{font-family:var(--display);font-weight:800;font-size:30px;line-height:1.1;margin:0;text-align:center}
-.badge{display:inline-block;background:var(--sun);color:var(--sun-ink);border-radius:6px;padding:0 8px;margin-right:6px;font-size:.8em;vertical-align:2px}
+.badge{display:inline-block;background:var(--sun);color:var(--sun-ink);border-radius:6px;padding:0 8px;margin:0 6px 0 2px;font-size:.8em;vertical-align:2px}
 .lead{color:var(--muted);text-align:center;margin:6px 0 20px}
 form{display:flex;flex-direction:column;gap:10px}
 label{font-size:12px;font-weight:800;letter-spacing:.08em;text-transform:uppercase;color:var(--muted)}
@@ -40,15 +42,17 @@ details form{margin-top:12px}
 .steps li{margin:6px 0}
 .steps a{color:var(--sky);font-weight:800;word-break:break-all}
 textarea{width:100%;height:150px;font:12px/1.4 ui-monospace,Menlo,Consolas,monospace;border:2px solid var(--line);border-radius:10px;padding:8px;background:var(--bg);color:var(--ink);resize:vertical}
+.nw{white-space:nowrap}
 .foot{text-align:center;color:var(--muted);font-size:13px;margin-top:18px}
 </style>
 </head>
 <body>
 <main>
   <div class="card">
-    <img class="logo" alt="Ms Trâm English Hub" src="{{LOGO}}">
-    <h1><span class="badge">A2</span>Flyers Word Garden</h1>
-    <p class="lead">Trang học từ vựng dành cho học viên lớp Flyers. Nhập mật khẩu lớp để vào học.</p>
+    <img class="logo" alt="" src="{{LOGO}}" width="72" height="72">
+    <p class="org">Ms Trâm English Hub</p>
+    <h1>Luyện thi <span class="badge">A2</span>Flyers</h1>
+    <p class="lead">Trang luyện thi dành riêng cho học viên lớp Flyers. Nhập mật khẩu lớp để vào học.</p>
     <form id="login" autocomplete="on">
       <label for="pw">Mật khẩu</label>
       <input id="pw" name="password" type="password" autocomplete="current-password" required>
@@ -81,7 +85,7 @@ textarea{width:100%;height:150px;font:12px/1.4 ui-monospace,Menlo,Consolas,monos
       </div>
     </details>
   </div>
-  <p class="foot">Ms Trâm English Hub · Zalo/HP: 079 29 51 529 · 0898 123 696<br>12 Lê Đình Chinh, Quy Nhơn Nam</p>
+  <p class="foot">Ms Trâm English Hub · Zalo/HP: <span class="nw">079 29 51 529</span> · <span class="nw">0898 123 696</span><br>12 Lê Đình Chinh, Quy Nhơn Nam</p>
 </main>
 
 <script id="payload" type="application/json">{{PAYLOAD}}</script>

@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Encrypt the Flyers Word Garden page behind a class password.
+"""Encrypt the Luyện thi A2 Flyers page behind a class password.
 
 The readable page is NOT kept in this public repo. index.html holds the page
 encrypted with a random content key; key.json holds that content key wrapped
@@ -39,7 +39,7 @@ def unwrap(pw):
 
 def build(src, raw):
     html = open(src, encoding="utf-8").read()
-    m = re.search(r'id="logoFoot"[^>]*src="([^"]+)"', html)
+    m = re.search(r'id="logoMark"[^>]*src="([^"]+)"', html)
     iv = os.urandom(12)
     ct = AESGCM(raw).encrypt(iv, html.encode("utf-8"), None)
     payload = json.dumps({"iv": b64e(iv), "ct": b64e(ct)})
