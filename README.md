@@ -8,7 +8,7 @@ Trang luyện thi Cambridge A2 Flyers của Ms Trâm English Hub: hai phần ri�
 
 Trang được khóa bằng mật khẩu lớp. Nội dung trong `index.html` đã được mã hóa; `key.json` giữ khóa mở trang, được bảo vệ bằng mật khẩu.
 
-**Đổi mật khẩu (giáo viên):** mở link riêng `https://mstramehub.github.io/flyers-vocabulary/#giao-vien` (mục này ẩn với học sinh), nhập mật khẩu cũ và mật khẩu mới, rồi dán mã được tạo vào file `key.json` trên GitHub và bấm Commit changes. Sau 1–2 phút mật khẩu mới có hiệu lực.
+**Đổi mật khẩu (giáo viên):** mở link riêng `https://mstramehub.github.io/luyen-thi-flyers/#giao-vien` (mục này ẩn với học sinh), nhập mật khẩu cũ và mật khẩu mới, rồi dán mã được tạo vào file `key.json` trên GitHub và bấm Commit changes. Sau 1–2 phút mật khẩu mới có hiệu lực.
 
 **Sửa nội dung trang:** dùng `tools/sitelock.py` (cần `pip install cryptography`):
 
